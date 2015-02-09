@@ -20,6 +20,8 @@ public class GameTest {
         Assert.assertEquals(finalScore, 0);
 
     }
+
+    @org.junit.Test
     public void withoutStrikeandSpare_Score30() throws Exception {
         Game gameBowling= new Game();
         gameBowling.roll(2);
@@ -54,6 +56,43 @@ public class GameTest {
 
         finalScore=gameBowling.score();
         Assert.assertEquals(finalScore, 30);
+    }
+
+    @org.junit.Test
+    public void oneStrikeAllNextZero_score20 ()throws Exception{
+        Game gameBowling= new Game();
+        gameBowling.roll(10);
+
+
+        gameBowling.roll(4);
+        gameBowling.roll(1);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        finalScore=gameBowling.score();
+        Assert.assertEquals(finalScore, 20);
 
     }
 }
