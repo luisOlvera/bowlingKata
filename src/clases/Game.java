@@ -10,10 +10,14 @@ public class Game {
 
    public void roll(int pins){
     rolls[indexRoll++]=pins;
-       if (rolls[indexRoll-1]==10 && (indexRoll-1)%2==0 && indexRoll<18)
+       if (isStrike(indexRoll-1) && ! isRollOfFinalFrame(indexRoll-1))
            indexRoll++;
 
    }
+
+    public boolean isRollOfFinalFrame( int indexRoll) {
+        return indexRoll>17;
+    }
 
     public int score (){
         indexRoll=0;
@@ -22,25 +26,41 @@ public class Game {
             if ( isStrike(indexRoll) )
                 score += addStrikeBono(indexRoll);
             else
-            score += withoutBono(indexRoll);
+                if (isSpare(indexRoll))
+                    score +=addSpareBono (indexRoll);
+                    else
+                      score += withoutBono(indexRoll);
             indexRoll+=2;
         }
     return score;
     }
 
     public boolean isStrike(int indexRoll){
-        return rolls[indexRoll]==10;
+        return rolls[indexRoll]==10 && (indexRoll)%2==0;
+    }
+
+    public boolean isSpare(int indexRoll){
+        return rolls[indexRoll]+ rolls[indexRoll+1 ]>=10 ;
     }
 
     public  int addStrikeBono(int indexRoll){
-        if(indexRoll>17)
+        if( isRollOfFinalFrame(indexRoll))
             return  10+ rolls[indexRoll +1]+ rolls[indexRoll +2];
         else
-            if (isStrike(indexRoll+2))
-                return  20 +rolls[indexRoll+4];
-            else
-                return  10 + rolls[indexRoll +2] +rolls[indexRoll+3];
+            return addStrikeBonoFramewithTwoRoll(indexRoll);
     }
+
+    public  int addSpareBono(int indexRoll){
+        return  10+  rolls[indexRoll +2];
+    }
+
+    public int addStrikeBonoFramewithTwoRoll(int indexRoll) {
+        if (isStrike(indexRoll+2))
+            return  20 +rolls[indexRoll+4];
+        else
+            return  10 + rolls[indexRoll +2] +rolls[indexRoll+3];
+    }
+
 
     public  int withoutBono(int indexRoll){
         return rolls[indexRoll] +rolls[indexRoll+1];

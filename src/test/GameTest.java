@@ -59,7 +59,7 @@ public class GameTest {
     }
 
     @org.junit.Test
-    public void oneStrikeAllNextZero_Score20 ()throws Exception{
+    public void oneStrikeSecondFrame4_1NextZero_Score20 ()throws Exception{
         Game gameBowling= new Game();
         gameBowling.roll(10);
 
@@ -97,7 +97,7 @@ public class GameTest {
     }
 
     @org.junit.Test
-    public void twoStrikeAllNextZero_Score49 ()throws Exception{
+    public void twoStrikeSecondFrame3_5AllNextZero_Score49 ()throws Exception{
         Game gameBowling= new Game();
         gameBowling.roll(10);
 
@@ -135,7 +135,7 @@ public class GameTest {
     }
 
     @org.junit.Test
-    public void firstAndLastFrameStrikeAllOthersZero_Score41 ()throws Exception {
+    public void firstAndLastFrameStrikeSecondFrame3_5AllOthersZero_Score41 ()throws Exception {
         Game gameBowling= new Game();
         gameBowling.roll(10);
 
@@ -169,5 +169,81 @@ public class GameTest {
 
         finalScore=gameBowling.score();
         Assert.assertEquals(finalScore, 41);
+    }
+
+    @org.junit.Test
+    public void oneSpareSecondFrame4_1AllNextZero_Score19 ()throws Exception{
+        Game gameBowling= new Game();
+        gameBowling.roll(2);
+        gameBowling.roll(8);
+
+        gameBowling.roll(4);
+        gameBowling.roll(1);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        finalScore=gameBowling.score();
+        Assert.assertEquals(finalScore, 19);
+
+    }
+
+    @org.junit.Test
+    public void FirtsAndLastFrameSpareSecondFrame4_1AllNextZero_Score39 ()throws Exception {
+        Game gameBowling = new Game();
+        gameBowling.roll(2);
+        gameBowling.roll(8);
+
+        gameBowling.roll(4);
+        gameBowling.roll(1);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(3);
+        gameBowling.roll(7);
+        gameBowling.roll(10);
+
+        finalScore = gameBowling.score();
+        Assert.assertEquals(finalScore, 39);
     }
 }
