@@ -59,7 +59,7 @@ public class GameTest {
     }
 
     @org.junit.Test
-    public void oneStrikeAllNextZero_score20 ()throws Exception{
+    public void oneStrikeAllNextZero_Score20 ()throws Exception{
         Game gameBowling= new Game();
         gameBowling.roll(10);
 
@@ -94,5 +94,80 @@ public class GameTest {
         finalScore=gameBowling.score();
         Assert.assertEquals(finalScore, 20);
 
+    }
+
+    @org.junit.Test
+    public void twoStrikeAllNextZero_Score49 ()throws Exception{
+        Game gameBowling= new Game();
+        gameBowling.roll(10);
+
+
+        gameBowling.roll(10);
+
+
+        gameBowling.roll(3);
+        gameBowling.roll(5);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        finalScore=gameBowling.score();
+        Assert.assertEquals(finalScore, 49);
+
+    }
+
+    @org.junit.Test
+    public void firstAndLastFrameStrikeAllOthersZero_Score41 ()throws Exception {
+        Game gameBowling= new Game();
+        gameBowling.roll(10);
+
+        gameBowling.roll(3);
+        gameBowling.roll(5);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(10);
+        gameBowling.roll(1);
+        gameBowling.roll(4);
+
+        finalScore=gameBowling.score();
+        Assert.assertEquals(finalScore, 41);
     }
 }

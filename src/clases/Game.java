@@ -10,7 +10,7 @@ public class Game {
 
    public void roll(int pins){
     rolls[indexRoll++]=pins;
-       if (rolls[indexRoll-1]==10 && (indexRoll-1)%2==0)
+       if (rolls[indexRoll-1]==10 && (indexRoll-1)%2==0 && indexRoll<18)
            indexRoll++;
 
    }
@@ -33,10 +33,13 @@ public class Game {
     }
 
     public  int addStrikeBono(int indexRoll){
-        if (isStrike(indexRoll+2))
-            return  20 +rolls[indexRoll+4];
+        if(indexRoll>17)
+            return  10+ rolls[indexRoll +1]+ rolls[indexRoll +2];
         else
-            return  10 + rolls[indexRoll +2] +rolls[indexRoll+3];
+            if (isStrike(indexRoll+2))
+                return  20 +rolls[indexRoll+4];
+            else
+                return  10 + rolls[indexRoll +2] +rolls[indexRoll+3];
     }
 
     public  int withoutBono(int indexRoll){
