@@ -61,6 +61,7 @@ public class GameTest {
     @org.junit.Test
     public void oneStrikeSecondFrame4_1NextZero_Score20 ()throws Exception{
         Game gameBowling= new Game();
+
         gameBowling.roll(10);
 
 
@@ -245,5 +246,165 @@ public class GameTest {
 
         finalScore = gameBowling.score();
         Assert.assertEquals(finalScore, 39);
+    }
+
+    @org.junit.Test
+    public void fiveSpareAndfiveStrike_Score210 ()throws Exception {
+        Game gameBowling = new Game();
+
+        gameBowling.roll(9);
+        gameBowling.roll(1);
+
+        gameBowling.roll(7);
+        gameBowling.roll(3);
+
+        gameBowling.roll(7);
+        gameBowling.roll(3);
+
+        gameBowling.roll(8);
+        gameBowling.roll(2);
+
+        gameBowling.roll(8);
+        gameBowling.roll(2);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        finalScore=gameBowling.score();
+        Assert.assertEquals(finalScore, 210);
+    }
+
+    @org.junit.Test
+    public void NineStrikesAndZeros_Score240 ()throws Exception {
+        Game gameBowling= new Game();
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(10);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+
+        finalScore=gameBowling.score();
+        Assert.assertEquals(finalScore, 240);
+    }
+
+    @org.junit.Test
+    public void FirtsFrame0_10SecondFrame1_1_AllnextZero_Score13 ()throws Exception {
+        Game gameBowling= new Game();
+        gameBowling.roll(0);
+        gameBowling.roll(10);
+
+        gameBowling.roll(1);
+        gameBowling.roll(1);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+        gameBowling.roll(0);
+        gameBowling.roll(0);
+
+
+        finalScore=gameBowling.score();
+        Assert.assertEquals(finalScore, 13);
+    }
+
+    @org.junit.Test
+    public void nineStrikewithFinalSpare_score270 ()throws Exception {
+        Game g= new Game();
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(0);
+        g.roll(10);
+        g.roll(10);
+
+        finalScore=g.score();
+        Assert.assertEquals(finalScore, 270);
+    }
+
+    @org.junit.Test
+    public void allStrike_score300 ()throws Exception {
+        Game g= new Game();
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+
+        g.roll(10);
+        g.roll(10);
+        g.roll(10);
+
+        finalScore=g.score();
+        Assert.assertEquals(finalScore, 300);
     }
 }
